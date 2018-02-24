@@ -29,7 +29,7 @@ def userid(userid):
 	return json.dumps({"id":int(userid),"name":user[int(userid)]})
 
 
-@app.route("/userid/<userid>",methods=['DELETE'])
+@app.route("/users/<userid>",methods=['DELETE'])
 def deluser(userid):
 	assert userid==request.view_args['userid']
 	global user
