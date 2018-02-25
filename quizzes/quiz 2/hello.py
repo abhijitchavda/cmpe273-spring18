@@ -17,7 +17,7 @@ def users():
         user[uid]=name
         uid=uid+1
         #return json.dumps({"name":name})
-        return json.dumps({'id':uid-1,'name':name})
+        return json.dumps({'id':uid-1,'name':name}),201
 
 
 @app.route("/users/<userid>")
@@ -36,5 +36,5 @@ def deluser(userid):
 	try:
 		del user[int(userid)]
 	except KeyError:
-		return json.dumps({"code":204,"msg":"key not found"})
-	return json.dumps({"code":200,"msg":"deleted"})
+		return json.dumps({"msg":"key not found"}),204
+	return json.dumps({"msg":"deleted"}),204
